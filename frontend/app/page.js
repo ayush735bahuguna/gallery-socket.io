@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react'
 import io from "socket.io-client";
 const socket = io.connect("http://localhost:3001");
 
-export default function page() {
+export default function Page() {
   const [Data, setData] = useState([]);
   const [newData, setnewData] = useState(null);
   const theme = useTheme();
