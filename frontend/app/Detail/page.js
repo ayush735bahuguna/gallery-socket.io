@@ -11,8 +11,8 @@ import io from "socket.io-client";
 const socket = io.connect("http://localhost:3001");
 
 export default function Page() {
-    const router = useRouter();
     const params = useSearchParams();
+    const router = useRouter();
     const Id = params.get('Id')
 
     const [Data, setData] = useState()
