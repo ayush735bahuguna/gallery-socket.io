@@ -5,7 +5,7 @@ import axios from 'axios'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 
 import io from "socket.io-client";
 const socket = io.connect("http://localhost:3001");
@@ -41,7 +41,7 @@ export default function Page() {
     }
 
     return (
-        <>
+        <Suspense fallback={() => { return <>Loading...</> }}>
             <span className='bg-slate-200 p-2 fixed top-3 left-3 rounded-full cursor-pointer'
                 onClick={() => { router.push('/') }}>
                 <X />
@@ -64,6 +64,6 @@ export default function Page() {
                     <Button onClick={addComment} variant='outlined' className='h-[55px]'>Add</Button>
                 </div>
             </div>
-        </>
+        </Suspense>
     )
 }
