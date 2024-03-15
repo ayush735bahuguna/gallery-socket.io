@@ -7,7 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import React, { useEffect, useState } from 'react'
 
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://gallery-socket-io.onrender.com");
 
 export default function Page() {
   const [Data, setData] = useState([]);
@@ -16,7 +16,7 @@ export default function Page() {
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
   const lg = useMediaQuery(theme.breakpoints.down('lg'));
   const fetchApi = async () => {
-    const { data } = await axios.get('http://localhost:3001/all');
+    const { data } = await axios.get('https://gallery-socket-io.onrender.com/all');
     setData(data);
     // console.log(data);
   }

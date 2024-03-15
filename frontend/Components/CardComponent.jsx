@@ -13,7 +13,7 @@ export default function CardComponent({ ImageUrl, title, Description, Id, commen
     const router = useRouter();
 
     async function IncreaseLike() {
-        const { data } = await axios.put(`http://localhost:3001/increase/${Id}`);
+        const { data } = await axios.put(`https://gallery-socket-io.onrender.com/increase/${Id}`);
         console.log(data);
     }
     return (

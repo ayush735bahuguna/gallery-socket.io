@@ -39,7 +39,7 @@ export default function DialogComponent({ setnewData }) {
         }
         else {
             if (Image) {
-                const { data } = await axios.post('http://localhost:3001/upload/', { image: Image, Description: Description, title: Title }, { headers: { "Content-Type": "multipart/form-data" } })
+                const { data } = await axios.post('https://gallery-socket-io.onrender.com/upload/', { image: Image, Description: Description, title: Title }, { headers: { "Content-Type": "multipart/form-data" } })
                 setnewData(data);
                 setSnackBarOpen(true)
                 setloading(false);

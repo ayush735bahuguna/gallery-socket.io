@@ -8,7 +8,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import React, { Suspense, useEffect, useState } from 'react'
 
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://gallery-socket-io.onrender.com");
 
 export default function Page() {
     const params = useSearchParams();
@@ -29,13 +29,13 @@ export default function Page() {
     }, [socket])
 
     async function fetchApi() {
-        const { data } = await axios.get(`http://localhost:3001/singlePost/${Id}`);
+        const { data } = await axios.get(`https://gallery-socket-io.onrender.com/singlePost/${Id}`);
         setData(data);
         setcommentData(data?.comments);
     }
 
     async function addComment() {
-        const { data } = await axios.put(`http://localhost:3001/addComment/${Id}`, { comment: comment });
+        const { data } = await axios.put(`https://gallery-socket-io.onrender.com/addComment/${Id}`, { comment: comment });
         setcommentData(data?.post?.comments);
         setcomment('')
     }
